@@ -1,0 +1,10 @@
+{
+  "nome": "DUCK SPACE",
+  "descricao": "Doceria: Bolos e doces | Qualidade 😋",
+  "whatsapp": "https://api.whatsapp.com/send/?phone=5511932545455&text=Ol%C3%A1%2C+gostaria+de+fazer+um+pedido.",
+  "produtos": [
+    { "nome": "Brigadeiro", "preco": "R$ 2,50" },
+    { "nome": "Beijinho", "preco": "R$ 2,50" },
+    { "nome": "Cento de Doces", "preco": "R$ 120,00" }
+  ]
+}
