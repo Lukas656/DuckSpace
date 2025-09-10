@@ -21,3 +21,5 @@ Ideal para docerias, salões de beleza, barbearias, lojas de roupas e qualquer c
 - 🛍️ **Catálogo dinâmico** (produtos/serviços carregados via configuração)  
 - 📲 **Botão direto para WhatsApp** com mensagem personalizada por item  
 - ⚡ **Frontend moderno** com React + Vite + TailwindCSS  
+
+<img width="1419" height="735" alt="image" src="https://github.com/user-attachments/assets/a63622b4-c2b2-4b32-bb00-5e9e025c6fb0" />
