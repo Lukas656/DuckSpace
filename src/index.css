@@ -1,15 +1,21 @@
+@import "tailwindcss";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-*{
-    padding: 0%;
-    margin: 0%;
-}
 
-.header{
-    width: 100%;
-    height: auto;
-    background-color: black;
+.container-bg{
+    background-image: url('https://i.ibb.co/1G8Fg7pm/galaxi.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+/* .conteiner{
     color: white;
+    border: #1A0756 solid 1px ;
+    background: #1A0756;
+    background: linear-gradient(90deg,rgba(26, 7, 86, 1) 0%, rgba(75, 26, 130, 1) 35%, rgba(121, 35, 167, 1) 100%);
+} */
+.conteiner{
+   @apply bg-white/5 backdrop-blur-sm border border-white/10 shadow-md ;
 }

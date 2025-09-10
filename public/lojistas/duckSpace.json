@@ -6,5 +6,12 @@
     { "nome": "Brigadeiro", "preco": "R$ 2,50" },
     { "nome": "Beijinho", "preco": "R$ 2,50" },
     { "nome": "Cento de Doces", "preco": "R$ 120,00" }
+  ],
+  "links": [
+    { "nome": "DuckSpace", "slug": "duckSpace" },
+    { "nome": "Doces", "slug": "duckSpace" },
+    { "nome": "Bolos", "slug": "duckSpace" },
+    { "nome": "Whatsapp", "slug": "5511932545455" },
+    { "nome": "Instagram", "slug": "duckSpace" }
   ]
 }
