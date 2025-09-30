@@ -31,7 +31,7 @@ export default function HomePage() {
     },
     {
       nome: "FeadBacks",
-      slug: "https://www.instagram.com/stories/highlights/18184001122312729/",
+      slug: FEADBACK,
       icon: <Cookie className="w-4 h-4" />,
     },
   ];
