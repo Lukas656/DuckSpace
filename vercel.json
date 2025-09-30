@@ -1,0 +1,8 @@
+{
+  // Sempre que alguém acessar QUALQUER rota,
+  // a Vercel vai redirecionar pra "/" (index.html).
+  // A partir daí o React Router decide o que renderizar.
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/" }
+  ]
+}
