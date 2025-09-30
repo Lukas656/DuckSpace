@@ -4,18 +4,82 @@
 @tailwind utilities;
 
 
-.container-bg{
-    background-image: url('https://i.ibb.co/1G8Fg7pm/galaxi.jpg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+html, body, #root {
+  height: 100%;
+  margin: 0;
 }
-/* .conteiner{
-    color: white;
-    border: #1A0756 solid 1px ;
-    background: #1A0756;
-    background: linear-gradient(90deg,rgba(26, 7, 86, 1) 0%, rgba(75, 26, 130, 1) 35%, rgba(121, 35, 167, 1) 100%);
-} */
+
+.container-bg {
+  background-image: url('https://i.ibb.co/kV3R7GCK/Chat-GPT-Image-29-de-set-de-2025-20-35-11.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  color: white;
+  min-height: 100%;
+}
 .conteiner{
    @apply bg-white/5 backdrop-blur-sm border border-white/10 shadow-md ;
+   height: 100%;
+}
+
+a[href="/"] {
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin-top: 1rem;
+  text-decoration: none;
+}
+
+a {
+  width: 100%;
+  padding: 14px;
+  margin: 8px 0;
+  border-radius: 14px;
+
+  background: rgba(255, 255, 255, 0.15); /* vidro visível */
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(12px);
+
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* centraliza o texto */
+  padding: 12px 16px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.1);
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.button i {
+  position: absolute;
+  left: 16px; /* fixa o ícone no canto esquerdo */
+  font-size: 18px;
+}
+
+
+/* Quando clicado */
+a:active {
+  transform: scale(0.97);
+}
+
+/* Esconde scrollbar mas mantém a rolagem */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE e Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
 }

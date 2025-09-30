@@ -1,0 +1,49 @@
+{
+  "nome": "DUCK SPACE",
+  "descricao": "Doceria: Bolos e doces | Qualidade 😋",
+  "whatsapp": "5511932545455",
+  "produtos": [
+    {
+      "nome": "Bolo",
+      "preco": "R$ 10,50",
+      "imagem": "https://i.ibb.co/r2C3BjdK/Captura-de-tela-2025-09-10-220637.png"
+    },
+    {
+      "nome": "Bolo",
+      "preco": "R$ 10,50",
+      "imagem": "https://i.ibb.co/Q7qpDWDV/Captura-de-tela-2025-09-10-215728.png"
+    },
+    {
+      "nome": "Brigadeiro",
+      "preco": "R$ 10,50",
+      "imagem": "https://i.ibb.co/Xx93yQ0X/Captura-de-tela-2025-09-10-215717.png"
+    },
+    {
+      "nome": "Brigadeiro",
+      "preco": "R$ 10,50",
+      "imagem": "https://i.ibb.co/G4shzC2C/Captura-de-tela-2025-09-10-215708.png"
+    },
+    {
+      "nome": "Cone",
+      "preco": "R$ 10,50",
+      "imagem": "https://i.ibb.co/zVGnJpmm/Captura-de-tela-2025-09-10-215646.png"
+    },
+    {
+      "nome": "Musse",
+      "preco": "R$ 10,00",
+      "imagem": "https://i.ibb.co/QFpYdXsg/Captura-de-tela-2025-09-10-215617.png"
+    },
+    {
+      "nome": "Musse",
+      "preco": "R$ 10,00",
+      "imagem": "https://i.ibb.co/TDWjVxSN/Captura-de-tela-2025-09-10-215657.png"
+    }
+  ],
+  "links": [
+    { "nome": "DuckSpace", "slug": "duckSpace" },
+    { "nome": "Doces", "slug": "duckSpace" },
+    { "nome": "Bolos", "slug": "duckSpace" },
+    { "nome": "Whatsapp", "slug": "5511932545455" },
+    { "nome": "Instagram", "slug": "duckSpace" }
+  ]
+}

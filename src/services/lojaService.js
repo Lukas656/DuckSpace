@@ -1,6 +1,6 @@
 // src/services/lojasService.js
 export async function getLoja(slug) {
-  const url = `${import.meta.env.BASE_URL}lojistas/${slug}.json`;
+  const url = `${import.meta.env.BASE_URL}lojistas/duckspace/${slug}.json`;
   console.log("🔍 Buscando JSON em:", url);
 
   try {

@@ -1,16 +1,16 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom"
-import Home from "./pages/Home"
-import Loja from "./pages/Loja"
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import Loja from "./pages/Loja";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/:slug" element={<Loja />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/duckspace/:slug" element={<Loja />} />
       </Routes>
     </BrowserRouter>
-  )
+  );
 }
 
-export default App
+export default App;
