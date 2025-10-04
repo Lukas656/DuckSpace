@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { redirect, useParams } from "react-router-dom";
 import { useEffect, useState, useRef } from "react";
 import { getLoja } from "../services/lojaService";
 import { Cookie, ChevronLeft, ChevronRight } from "lucide-react";
@@ -37,26 +37,30 @@ export default function Loja() {
       });
     }
   };
+  const redirectToHome = () => {
+    window.location.href = "/"
+  }
+
 
   return (
     <div className=" p-6 max-w-6xl mx-auto relative">
       {/* Header alinhado ao centro para ficar visualmente ligado ao carrossel */}
-      <div className="w-full p-2 text-center">
+      <div className="w-full p-2 text-center bg-white/5 backdrop-blur-lg shadow-2xl rounded-3xl mb-2">
           {/* Logo */}
-        <div className="flex items-center justify-center m-3 gap-3">
+        <div className="flex items-center justify-center m-3 gap-3 cursor-pointer" onClick={redirectToHome}>
           <img
-            src="https://i.ibb.co/wNBm3twq/Confeitaria.webp"
+            src="https://i.ibb.co/QFyqHmCc/Duck-Space-Copia.png"
             alt="logo"
-          className="w-19 h-19 rounded-full border-4 border-brand-nebulosa shadow-md hover:scale-105 transition-transform"
+            className="w-19 h-19 rounded-full border-4 border-brand-nebulosa shadow-md hover:scale-105 transition-transform"
           />
-        <h1 className="text-3xl md:text-4xl font-extrabold mb-1 text-white/95">
+        <h1 className="text-3xl md:text-4xl font-serif  mb-1 text-white/95">
           {data.nome}
         </h1>
         </div>
 
-        <p className="text-white/75 mb-4 max-w-3xl mx-auto">{data.descricao}</p>
+        <p className="font-script text-white/75 mb-4 max-w-3xl mx-auto">{data.descricao}</p>
 
-        <h2 className="text-2xl font-semibold mb-2 inline-flex items-center gap-3 text-violet-100">
+        <h2 className="text-2xl font-serif mb-2 inline-flex items-center gap-3 text-violet-100">
           <Cookie className="w-6 h-6 text-violet-300" />
           Vem Conferir
         </h2>
@@ -89,11 +93,11 @@ export default function Loja() {
                 />
               </div>
 
-              <h3 className="text-lg font-semibold text-white leading-tight">
+              <h3 className="text-2xl font-serif text-white leading-tight my-2">
                 {produto.nome}
               </h3>
 
-              <p className="text-sm text-white/80 font-bold mb-3">
+              <p className="text-1xl text-white/80 font-serif mb-3">
                 {produto.preco}
               </p>
 
@@ -102,7 +106,7 @@ export default function Loja() {
                 href={getWhatsappLink(produto.nome, produto.whatsapp)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-auto inline-block text-white font-semibold rounded-lg px-6 py-2 transition-transform transform active:scale-95 shadow-md"
+                className="mt-auto inline-block text-white font-script rounded-lg px-6 py-2 transition-transform transform active:scale-95 shadow-md"
                 style={{
                   background:
                     "linear-gradient(90deg, rgba(124,58,237,1) 0%, rgba(139,92,246,1) 100%)",
@@ -117,7 +121,7 @@ export default function Loja() {
         <button
           onClick={() => scroll("right")}
           aria-label="Scroll para direita"
-          className="absolute right-0 top-1/2 -translate-y-1/2 bg-violet-600 text-white p-3 rounded-full shadow-lg hover:bg-violet-700 focus:outline-none focus:ring-4 focus:ring-violet-300"
+          className="font-script absolute right-0 top-1/2 -translate-y-1/2 bg-violet-600 text-white p-3 rounded-full shadow-lg hover:bg-violet-700 focus:outline-none focus:ring-4 focus:ring-violet-300"
         >
           <ChevronRight className="w-5 h-5" />
         </button>
@@ -126,7 +130,7 @@ export default function Loja() {
       {/* Link de retorno */}
       <a
         href="/"
-        className="block mt-10 text-violet-200 hover:underline text-center"
+        className="font-script block mt-10 text-violet-200 hover:underline bg-none text-center"
       >
         ⬅ Retornar
       </a>

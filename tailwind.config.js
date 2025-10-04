@@ -14,6 +14,10 @@ export default {
           night: "#0B0E2E",// Azul Noturno
         }
       },
+       fontFamily: {
+        serif: ['"Playfair Display"', 'serif'],
+        script: ['"Great Vibes"', 'cursive'],
+      },
     },
   },
   plugins: [],
