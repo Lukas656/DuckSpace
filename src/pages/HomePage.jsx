@@ -1,120 +1,120 @@
 import React from "react";
-import {
-  Trophy,
-  MapPin,
-  Truck,
-  Cookie,
-  Instagram,
-  Phone,
-  ShoppingBag,
-  Home,
-} from "lucide-react";
+import Hero from "../components/Hero";
+import About from "../components/About";
+import Cardapio from "../components/Cardapio";
+import Footer from "../components/Footer";
+import Testimonials from "../components/Testimonials";
 
 const WHATSAPP = import.meta.env.VITE_WHATSAPP_REDIRECT;
-const INSTAGRAM = import.meta.env.VITE_INSTAGRAM_REDIRECT;
-const FEADBACK = import.meta.env.VITE_FEADBACK_REDIRECT;
-const IFOOD = import.meta.env.VITE_IFOOD_REDIRECT;
 
 export default function HomePage() {
-  const lojas = [
-    {
-      nome: "DuckSpace",
-      slug: "duckspace/all",
-      icon: <Home className="w-4 h-4" />,
-    },
-    { nome: "Whatsapp", slug: WHATSAPP, icon: <Phone className="w-4 h-4" /> },
-    { nome: "Ifood", slug: IFOOD, icon: <ShoppingBag className="w-4 h-4" /> },
-    {
-      nome: "Instagram",
-      slug: INSTAGRAM,
-      icon: <Instagram className="w-4 h-4" />,
-    },
-    {
-      nome: "FeadBacks",
-      slug: FEADBACK,
-      icon: <Cookie className="w-4 h-4" />,
-    },
-  ];
+  const loja = {
+    nome: "DuckSpace",
+    whatsapp: WHATSAPP,
+    descricao: "Doceria: Bolos e doces | Qualidade 😋",
+    logo: "https://i.ibb.co/QFyqHmCc/Duck-Space-Copia.png",
+    produtos: [
+      {
+        nome: "Bolo de chocolate",
+        preco: "12,00",
+        descricao:
+          "Bolo temático com cobertura intergaláctica e brilho comestível ✨",
+        imagem:
+          "https://static.ifood-static.com.br/image/upload/t_medium/pratos/3a0c8e6c-1a85-46a3-9379-48ac6c83f05d/202507051452_6QV9_.jpeg", // coloca imagem real depois
+      },
+      {
+        nome: "Brigadeiro cremoso",
+        preco: "14,99",
+        descricao:
+          "Bolo temático com cobertura intergaláctica e brilho comestível ✨",
+        imagem:
+          "https://static.ifood-static.com.br/image/upload/t_medium/pratos/3a0c8e6c-1a85-46a3-9379-48ac6c83f05d/202506100019_23DQ_.jpeg", // coloca imagem real depois
+      },
+      {
+        nome: "Bolo Galáctico",
+        preco: "59,90",
+        descricao:
+          "Bolo temático com cobertura intergaláctica e brilho comestível ✨",
+        imagem:
+          "https://i.ibb.co/r2C3BjdK/Captura-de-tela-2025-09-10-220637.png", // coloca imagem real depois
+      },
+      {
+        nome: "Cupcake Nebulosa",
+        preco: "14,90",
+        descricao: "Cupcake com swirl espacial e glitter de estrela",
+        imagem:
+          "https://i.ibb.co/Xx93yQ0X/Captura-de-tela-2025-09-10-215717.png",
+      },
+      {
+        nome: "Brigadeiro Cósmico",
+        preco: "6,90",
+        descricao: "Brigadeiro galáctico com pó estelar",
+        imagem:
+          "https://i.ibb.co/Q7qpDWDV/Captura-de-tela-2025-09-10-215728.png",
+      },
+      {
+        nome: "Brigadeiro Cósmico",
+        preco: "6,90",
+        descricao: "Brigadeiro galáctico com pó estelar",
+        imagem:
+          "https://i.ibb.co/G4shzC2C/Captura-de-tela-2025-09-10-215708.png",
+      },
+      {
+        nome: "Brigadeiro Cósmico",
+        preco: "6,90",
+        descricao: "Brigadeiro galáctico com pó estelar",
+        imagem:
+          "https://i.ibb.co/zVGnJpmm/Captura-de-tela-2025-09-10-215646.png",
+      },
+      {
+        nome: "Brigadeiro Cósmico",
+        preco: "6,90",
+        descricao: "Brigadeiro galáctico com pó estelar",
+        imagem:
+          "https://i.ibb.co/QFpYdXsg/Captura-de-tela-2025-09-10-215617.png",
+      },
+      {
+        nome: "Brigadeiro Cósmico",
+        preco: "6,90",
+        descricao: "Brigadeiro galáctico com pó estelar",
+        imagem:
+          "https://i.ibb.co/TDWjVxSN/Captura-de-tela-2025-09-10-215657.png",
+      },
+    ],
+  };
+
+  const isDuckspace = loja.slug === "duckspace/all";
 
   return (
-    <div className="flex items-center justify-center p-6 bg-brand-night min-h-screen containerHome-bg">
-      <div className="conteiner shadow-2xl rounded-3xl w-full max-w-sm p-6 relative border border-brand-galactico/30 bg-white/5 backdrop-blur-lg">
-        {/* Logo */}
-        <div className="flex justify-center m-2">
-          <img
-            src="https://i.ibb.co/QFyqHmCc/Duck-Space-Copia.png"
-            alt="logo"
-            className="w-20 h-20 rounded-full border-4 border-brand-nebulosa shadow-md hover:scale-105 transition-transform"
-          />
-        </div>
+    <>
+      <Hero loja={loja} />
 
-        {/* Nome da confeitaria */}
-        <h1 className="text-xl font-serif text-center text-brand-cosmic tracking-wide mb-6">
-          DUCK SPACE CONFEITARIA
-        </h1>
-
-        {/* Lista de botões */}
-        <div className="w-full flex flex-col gap-3 font-script">
-          {lojas.map((loja) => {
-            const isDuckspace = loja.slug === "duckspace/all";
-
-            return (
-              <a
-                key={loja.slug}
-                href={loja.slug}
-                aria-label={`Acessar ${loja.nome}`}
-                target={isDuckspace ? "_self" : "_blank"}
-                rel={isDuckspace ? undefined : "noopener noreferrer"}
-                className="
-          flex items-center justify-center gap-2
-          border border-brand-magenta/30
-          rounded-xl py-3 px-4
-          font-script text-sm
-          transition-all duration-300
-          bg-gradient-to-r from-brand-cosmic/10 to-brand-Stellar/10
-          text-brand-cosmic
-          shadow-md hover:shadow-brand-cosmic/40
-          hover:scale-105 active:scale-95
-          hover:border-brand-cosmic/60
-          hover:text-white
-        "
-              >
-                <div className="flex items-left w-[30%]">{loja.icon}</div>
-                <div className="flex items-left w-[60%] font-script">{loja.nome}</div>
-              </a>
-            );
-          })}
-        </div>
-
-        {/* Diferenciais */}
-        <div
-          className="
-            text-base font-script leading-relaxed 
-            mt-6 p-4 
-            rounded-2xl 
-            bg-gradient-to-b from-brand-night/40 to-brand-galactico/20 
-            border border-brand-magenta/30
-            shadow-inner space-y-3
-          "
-        >
-          <div className="flex items-center gap-2 text-brand-cosmic">
-            <Cookie className="w-5 h-5" />
-            <p className="text-sm">Confeitaria de qualidade</p>
-          </div>
-          <div className="flex items-center gap-2 text-brand-cosmic">
-            <Trophy className="w-5 h-5" />
-            <p className="text-sm">A campeã em recheios e coberturas</p>
-          </div>
-          <div className="flex items-center gap-2 text-brand-cosmic">
-            <Truck className="w-5 h-5" />
-            <p className="text-sm">Delivery de Doces</p>
-          </div>
-          <div className="flex items-center gap-2 text-brand-cosmic">
-            <MapPin className="w-5 h-5" />
-            <p className="text-sm">Guaianases e Região</p>
-          </div>
-        </div>
+      <div className="my-20 md:my-40" id="about">
+        <About />
       </div>
-    </div>
+
+      <div id="cardapio">
+        <Cardapio produtos={loja.produtos} zap={loja.whatsapp} />
+      </div>
+
+      {/* Botão flutuante do WhatsApp */}
+      <a
+        key={loja.slug}
+        href={`${loja.whatsapp}`}
+        aria-label={`Acessar ${loja.nome}`}
+        target={isDuckspace ? "_self" : "_blank"}
+        rel={isDuckspace ? undefined : "noopener noreferrer"}
+        className="fixed bottom-6 right-6 p-4 rounded-full shadow-lg z-50"
+        style={{ background: "#25D366" }}
+      >
+        💬
+      </a>
+
+      <div className="my-20 md:my-40" id="testimonials">
+        <Testimonials />
+      </div>
+
+      <Footer />
+    </>
   );
 }

@@ -1,0 +1,85 @@
+@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  --navy-deep: #0a0e27;
+  --navy-medium: #1a1a3e;
+  --purple-cosmic: #8A2BE2;
+  --purple-dark: #6B46C1;
+  --cyan-neon: #00D9FF;
+  --white: #FFFFFF;
+  --green-whatsapp: #25D366;
+}
+
+
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  background: var(--navy-deep);
+  color: var(--white);
+  font-family: Inter, ui-sans-serif, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+.container-bg {
+  background-image: url('https://i.ibb.co/kgNzXg4s/Chat-GPT-Image-3-de-out-de-2025-21-48-01.png');
+  background-repeat: repeat;
+  background-position: center;
+  color: white;
+  min-height: 100%;
+}
+
+.containerHome-bg {
+  background-repeat: repeat;
+  background-position: center;
+  color: white;
+  min-height: 100%;
+}
+.conteiner{
+   @apply bg-white/5 backdrop-blur-sm border border-white/10 shadow-md ;
+   height: 100%;
+}
+
+
+/* .scrollbar-hide {
+  -ms-overflow-style: none; 
+  scrollbar-width: none; 
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Chrome, Safari 
+} 
+*/
+
+
+/* glass-card used across components */
+.glass-card {
+  background: linear-gradient(145deg, rgba(138,43,226,0.03), rgba(0,217,255,0.01));
+  border: 1px solid rgba(255,255,255,0.04);
+  backdrop-filter: blur(8px) saturate(120%);
+  -webkit-backdrop-filter: blur(8px) saturate(120%);
+  border-radius: 14px;
+  box-shadow: 0 8px 32px rgba(10,14,39,0.6);
+  transition: transform .28s ease, box-shadow .28s ease;
+}
+
+.glass-card:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 20px 48px rgba(138,43,226,0.16);
+}
+
+/* tiny neon glow helper */
+.neon {
+  filter: drop-shadow(0 0 8px rgba(138,43,226,0.45)) drop-shadow(0 0 14px rgba(0,217,255,0.15));
+}
+
+/* hide default scrollbar for the card lists if needed */
+.scrollbar-hide::-webkit-scrollbar { display:none; }
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* responsive tweaks */
+@media (max-width: 768px) {
+  .glass-card { border-radius: 12px; }
+}
