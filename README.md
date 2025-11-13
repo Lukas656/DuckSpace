@@ -23,7 +23,12 @@ Ideal para docerias, salões de beleza, barbearias, lojas de roupas e qualquer c
 - ⚡ **Frontend moderno** com React + Vite + TailwindCSS  
 
 Veja o Projeto no Ar🚀: https://duck-space.vercel.app/
+<img width="1920" height="3090" alt="front" src="https://github.com/user-attachments/assets/e2d590e6-f83d-4c55-8c97-b257a168863d" />
 
-<img width="1430" height="730" alt="Captura de tela 2025-10-03 220215" src="https://github.com/user-attachments/assets/b7ddc44c-49b2-4c50-b5fd-cb49d4dfcfef" />
-<img width="1438" height="727" alt="Captura de tela 2025-10-03 220222" src="https://github.com/user-attachments/assets/e8ecb69a-1325-45c2-ae14-b3069a84ede4" />
+
+Proximo passo integrar com um painel de ADM :
+<img width="1700" height="1301" alt="Diagrama" src="https://github.com/user-attachments/assets/c5fd9650-1d67-478a-ace0-aad3281ff332" />
+
+
+
 
