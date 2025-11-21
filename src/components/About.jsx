@@ -21,7 +21,7 @@ const features = [
 
 export default function About() {
   return (
-    <div className="mx-auto px-6">
+    <div className="h-screen mx-auto px-6">
       <div className="grid gap-6 grid-cols-1 md:grid-cols-4">
         {features.map((f) => (
           <div key={f.title} className="glass-card p-6 flex flex-col items-center text-center">

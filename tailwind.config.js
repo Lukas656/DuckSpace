@@ -23,6 +23,3 @@ export default {
   plugins: [],
 };
 
-
-// linear-gradient(180deg, #1A0756 0%, #4B1A82 50%, #7923A7 100%)
-// radial-gradient(circle at top, #F26CBF, transparent 60%)
