@@ -93,7 +93,7 @@ export default function Hero() {
               <a
                 key={btn._id}
                 href={btn.link}
-                target="_blank"
+                target="_self"
                 rel="noopener noreferrer"
                 className="px-6 py-3 rounded-full font-semibold shadow-lg transition-transform transform hover:scale-105"
                 style={{
