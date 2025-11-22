@@ -13,7 +13,7 @@ export default function ProductCard({ item }) {
 
      <div className="flex gap-4 justify-between">
       <h3 className="text-lg font-semibold text-white/95">{item.title}</h3>
-      <div className="w-[70px] text-center px-2 py-1 rounded bg-white/10 text-xs font-semibold text-white">
+      <div className="w-[70px] h-auto text-center p-1 rounded bg-white/10 text-xs font-semibold text-white">
         R$ {item.price}
       </div>
       </div> 
