@@ -1,36 +1,46 @@
-import React from "react";
-
-const items = [
-  { name: "Mariana", text: "O bolo ficou perfeito, atendimento 5 estrelas!" },
-  { name: "Carlos", text: "Entrega rápida e a decoração tava linda 😍" },
-  { name: "Lucas", text: "Melhor doceria da região. Recomendo! amei❤️" },
-];
-
-const FEADBACK = import.meta.env.VITE_FEADBACK_REDIRECT;
+import React, { useEffect, useState } from "react";
+import { getTestimonialsData } from "../services/api";
 
 export default function Testimonials() {
-  return (
-   <>
-   <div className="mx-5 grid grid-cols-1 md:grid-cols-3 gap-6">
-      {items.map((t, i) => (
-        <div key={i} className="glass-card p-6">
-          <p className="text-white/90 italic">“{t.text}”</p>
-          <div className="mt-4 text-sm text-white/70 font-semibold">
-            — {t.name}
-          </div>
-        </div>
-      ))}
+  const [feadbacks, setAbouts] = useState([]);
 
+  useEffect(() => {
+    async function load() {
+      const data = await getTestimonialsData();
+      setAbouts(data);
+    }
+    load();
+  }, []);
+
+  // ainda carregando
+  if (feadbacks.length === 0) {
+    return <div className="text-center py-20 text-white">Carregando...</div>;
+  }
+
+  const first = feadbacks[0];
+
+  return (
+    <div className="px-6 py-30" id="feadbacks">
+      <div className="mx-5 grid grid-cols-1 md:grid-cols-3 gap-6 cursor-pointer">
+        {first.cards.map((t) => (
+          <div key={t._id} className="glass-card p-6">
+            <p className="text-white/90 italic">“{t.text}”</p>
+            <div className="mt-4 text-sm text-white/70 font-semibold">
+              — {t.author}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div className="w-full flex items-center my-5 justify-center">
+        <a
+          href={first.linkUrl}
+          target="_blank"
+          className="underline text-white/80 hover:text-white"
+        >
+          {first.linkText}
+        </a>
+      </div>
     </div>
-<div className="w-full flex itens-center my-5 justify-center">
-      <a
-        href={`${FEADBACK}`}
-        target="_blank"
-        className="underline"
-      >
-        Veja mais Feadbacks..
-      </a>
-</div>
-   </>
   );
 }

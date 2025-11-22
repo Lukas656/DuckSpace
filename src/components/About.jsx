@@ -1,32 +1,46 @@
-import React from "react";
-
-const features = [
-  {
-    title: "Ingredientes Premium",
-    icon: "https://a.lovart.ai/artifacts/agent/fMF34dn1CBoiDk6I.jpg",
-  },
-  {
-    title: "Entrega Rápida",
-    icon: "https://a.lovart.ai/artifacts/agent/44TwLmUOsRRiWv29.jpg",
-  },
-  {
-    title: "Personalização",
-    icon: "https://a.lovart.ai/artifacts/agent/gQe2sldiCdNaihqO.jpg",
-  },
-  {
-    title: "Qualidade Garantida",
-    icon: "https://a.lovart.ai/artifacts/agent/NCyuLcnvjBSe8pju.jpg",
-  },
-];
+import React, { useEffect, useState } from "react";
+import { getDifferentiatorsData } from "../services/api";
 
 export default function About() {
+  const [abouts, setAbouts] = useState([]);
+
+  useEffect(() => {
+    async function load() {
+      const data = await getDifferentiatorsData();
+      setAbouts(data);
+    }
+    load();
+  }, []);
+
+  // enquanto nada chegou
+  if (abouts.length === 0) {
+    return <div className="text-center py-20 text-white">Carregando...</div>;
+  }
+
+  const first = abouts[0]; // 👈 agora é seguro
+
   return (
-    <div className="h-screen mx-auto px-6">
-      <div className="grid gap-6 grid-cols-1 md:grid-cols-4">
-        {features.map((f) => (
-          <div key={f.title} className="glass-card p-6 flex flex-col items-center text-center">
-            <img src={f.icon} alt={f.title} className="w-14 h-14 mb-4" />
-            <h3 className="font-semibold text-lg text-white">{f.title}</h3>
+    <div className="text-center mx-auto px-6 py-20 md:py-30" id="about">
+      {abouts.map((item) => (
+        <div key={item._id}>
+          <h1 className="text-3xl md:text-5xl font-serif font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#8A2BE2] to-[#00D9FF] drop-shadow-lg">
+            {item.title}
+          </h1>
+
+          <p className="mt-4 text-white/80 text-lg md:text-xl">
+            {item.description}
+          </p>
+        </div>
+      ))}
+
+      <div className="grid m-8 gap-6 grid-cols-1 items-center justify-center md:grid-cols-3 cursor-pointer">
+        {first.cards?.map((f) => (
+          <div
+            key={f.alt}
+            className="glass-card p-3 flex flex-col items-center justify-center text-center"
+          >
+            <img src={f.image} alt={f.alt} className="w-20 h-20 mb-4 rounded-xl" />
+            <h3 className="font-semibold text-sx text-white">{f.description}</h3>
           </div>
         ))}
       </div>

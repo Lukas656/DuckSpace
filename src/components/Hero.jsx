@@ -4,6 +4,7 @@ import { getHeroData, getNavLinks } from "../services/api";
 export default function Hero() {
   const [hero, setHero] = useState(null);
   const [navLinks, setNavLinks] = useState([]);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     async function load() {
@@ -17,7 +18,18 @@ export default function Hero() {
     load();
   }, []);
 
-  if (!hero) return <div className="text-center py-20 text-white">Carregando...</div>;
+  // 🔥 Detecta scroll e ativa animação do header
+  useEffect(() => {
+    function handleScroll() {
+      setScrolled(window.scrollY > 20);
+    }
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  if (!hero)
+    return <div className="text-center py-20 text-white">Carregando...</div>;
 
   return (
     <>
@@ -36,16 +48,27 @@ export default function Hero() {
         </div>
 
         {/* navegação dinâmica */}
-        <nav className="absolute top-6 left-1/2 -translate-x-1/2 flex gap-6 z-30">
-          {navLinks.map((item) => (
-            <a
-              key={item._id}
-              href={item.link}
-              className="text-sm text-white/70 hover:text-white"
-            >
-              {item.text}
-            </a>
-          ))}
+        <nav
+          className={`
+    fixed top-0 left-0 w-full z-50 transition-all duration-300
+    ${
+      scrolled
+        ? "backdrop-blur-lg bg-[#0b0f27]/80 shadow-lg py-4"
+        : "bg-transparent py-6"
+    }
+  `}
+        >
+          <div className="flex justify-center gap-10">
+            {navLinks.map((item) => (
+              <a
+                key={item._id}
+                href={item.link}
+                className="text-xm text-white/70 hover:text-white transition-colors"
+              >
+                {item.text}
+              </a>
+            ))}
+          </div>
         </nav>
 
         {/* conteúdo principal */}
