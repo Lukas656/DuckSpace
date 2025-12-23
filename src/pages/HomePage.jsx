@@ -10,9 +10,9 @@ export default function HomePage() {
     <>
       <Hero />
       <About />
-      <Cardapio />
-      <Testimonials />
-      <Footer />
+      {/* <Cardapio /> */}
+      {/* <Testimonials />  */}
+      {/* <Footer /> */}
     </>
   );
 }

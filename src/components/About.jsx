@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { getDifferentiatorsData } from "../services/api";
 
 export default function About() {
@@ -12,37 +12,56 @@ export default function About() {
     load();
   }, []);
 
-  // enquanto nada chegou
   if (abouts.length === 0) {
     return <div className="text-center py-20 text-white">Carregando...</div>;
   }
 
-  const first = abouts[0]; // 👈 agora é seguro
+  const first = abouts[0];
 
   return (
-    <div className="text-center mx-auto px-6 py-20 md:py-30" id="about">
-      {abouts.map((item) => (
-        <div key={item._id}>
-          <h1 className="text-3xl md:text-5xl font-serif font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#8A2BE2] to-[#00D9FF] drop-shadow-lg">
-            {item.title}
-          </h1>
+    <div className="mx-auto max-w-6xl px-6 py-24 md:py-32" id="about">
+      <div className="text-center mb-16">
+        <h1 className="font-brand logo-text text-3xl md:text-6xl text-var(--text)">
+          {first.title}
+        </h1>
 
-          <p className="mt-4 text-white/80 text-lg md:text-xl">
-            {item.description}
+        <p className="mt-2 logo-text md:text-3xl font-bold text-var(--text)">
+          {first.subtitle}
+        </p>
+      </div>
+
+      {/* CONTEÚDO PRINCIPAL */}
+      <div className="grid gap-12 grid-cols-1 md:grid-cols-2 items-center">
+
+        <div className="flex flex-col items-center">
+          <div className="bg-white/80 p-3 rounded-xl shadow-lg">
+            <img
+              src={first.image.src}
+              alt={first.image.alt}
+              className="w-72 h-80 object-cover rounded-lg"
+            />
+          </div>
+
+          <p className="mt-3 text-sm text-var(--text)">
+            {first.image.description}
           </p>
         </div>
-      ))}
 
-      <div className="grid m-8 gap-6 grid-cols-1 items-center justify-center md:grid-cols-3 cursor-pointer">
-        {first.cards?.map((f) => (
-          <div
-            key={f.alt}
-            className="glass-card p-3 flex flex-col items-center justify-center text-center"
-          >
-            <img src={f.image} alt={f.alt} className="w-20 h-20 mb-4 rounded-xl" />
-            <h3 className="font-semibold text-sx text-white">{f.description}</h3>
-          </div>
-        ))}
+        {/* LISTA DE DESTAQUES */}
+        <ul className="flex flex-col gap-5 text-left">
+  {first.highlights.map((item) => (
+    <li
+      key={item._id}
+      className="flex items-center gap-4 logo-text text-xl md:text-2xl font-bold text-var(--text)"
+    >
+      <span className="text-pink-400 text-xl">
+        {item.icon}
+      </span>
+      <span>{item.text}</span>
+    </li>
+  ))}
+</ul>
+
       </div>
     </div>
   );

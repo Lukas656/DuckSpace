@@ -8,5 +8,7 @@ export const colors = {
   purpleLight: "#9D5FFF",
   blueDark: "#0f1729",
   grayLight: "#E5E7EB",
+  
+  bgProject: "#fff9fa",
   greenWhatsapp: "#25D366",
 };
