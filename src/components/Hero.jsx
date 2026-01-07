@@ -35,13 +35,13 @@ export default function Hero() {
         {/* navegação dinâmica */}
         <nav
           className={`
-    fixed top-0 left-0 w-full z-50 transition-all duration-300  py-4
+    fixed top-0 left-0 w-full z-50 transition-all duration-300 py-2
     ${
       scrolled ? "backdrop-blur-lg bg-[#dbd4d4]/80 shadow-lg" : "bg-transparent"
     }
   `}
         >
-          <div className="flex justify-center items-center gap-3 md:gap-20">
+          <div className="flex justify-around items-center gap-1 md:gap-20">
             <img
               src={hero.logo}
               alt={hero.logoAlt}
@@ -63,11 +63,11 @@ export default function Hero() {
 
         {/* conteúdo principal */}
         <div className="w-full mt-30 md:80">
-          <h1 className="font-brand logo-text text-2xl md:text-5xl text-var(--text)">
-            {hero.title}
+         <h1 className="font-serif text-4xl md:text-6xl text-[#4A2C2A] italic font-bold">
+          {hero.title}
           </h1>
-          <p className="my-4 logo-text md:text-3xl font-bold text-var(--text)">
-            {hero.description}
+          <p className="my-4 text-[#4A2C2A] text-lg md:text-xl font-medium opacity-90">
+          {hero.description}
           </p>
           <img
             src={hero.banner}
