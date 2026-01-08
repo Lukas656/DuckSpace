@@ -1,21 +1,47 @@
 import React from "react";
 
 export default function ProductCard({ item }) {
+  // Lógica para verificar se está esgotado
+  // Extrai apenas os números da string "10 unidades" -> 10
+  const qtdNumerica = item.quantidade ? parseInt(item.quantidade.replace(/\D/g, "")) : 0;
+  const isEsgotado = qtdNumerica < 1;
+
   return (
-    <article className="w-full max-w-[320px] bg-white rounded-[1.5rem] shadow-xl overflow-hidden flex flex-col transition-transform hover:scale-[1.02]">
+    <article 
+      className={`w-full max-w-[320px] bg-white rounded-[1.5rem] shadow-xl overflow-hidden flex flex-col transition-all duration-500 relative
+        ${isEsgotado ? "grayscale opacity-80 scale-95" : "hover:scale-[1.02]"}
+      `}
+    >
       
-      {/* Cabeçalho do Card: Imagem preenchendo tudo */}
-      <div className="w-full h-64 overflow-hidden bg-white">
+      {/* Badge de Estoque ou Esgotado */}
+      <div className={`absolute top-4 right-4 z-30 font-bold text-[15px] px-3 py-1 rounded-full shadow-lg border transition-colors
+        ${isEsgotado 
+          ? "bg-gray-600 text-white border-gray-400" 
+          : "bg-[#FFD1DC] text-[#4A2C2A] border-[#4A2C2A]/20"}
+      `}>
+        {isEsgotado ? "ESGOTADO" : item.quantidade}
+      </div>
+
+      {/* Cabeçalho do Card */}
+      <div className="w-full h-64 overflow-hidden bg-white relative">
         <img
           src={item.image}
           alt={item.alt || item.title}
           className="w-full h-full object-cover" 
         />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/5 to-transparent pointer-events-none"></div>
+        
+        {/* Overlay de "Indisponível" sobre a imagem se estiver esgotado */}
+        {isEsgotado && (
+          <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
+            <span className="bg-white/20 backdrop-blur-sm text-white px-4 py-1 rounded-full border border-white/30 text-sm font-bold uppercase tracking-widest">
+              Indisponível
+            </span>
+          </div>
+        )}
       </div>
 
-      {/* Área de Informações (Fundo Rosa) */}
-      {/* O rounded-t-[2.5rem] e o -mt-6 criam aquela sobreposição suave se desejar, 
-          mas para ser fiel à imagem, mantemos o encaixe perfeito: */}
+      {/* Área de Informações */}
       <div className="bg-[#FFD1DC] p-6 flex flex-col items-center text-center flex-1">
         
         <h3 className="text-2xl font-bold text-[#4A2C2A] mb-2">
@@ -31,17 +57,18 @@ export default function ProductCard({ item }) {
         </div>
 
         {/* Botões de Ação */}
-        <div className="flex gap-3 w-full justify-center">
+        <div className={`flex gap-3 w-full justify-center ${isEsgotado ? "pointer-events-none opacity-50" : ""}`}>
           {/* Botão Carrinho */}
-          <button className="flex items-center gap-2 bg-[#FF85A1] hover:bg-[#ff7091] text-white px-4 py-2 rounded-full text-xs font-bold transition-colors shadow-sm">
+          <button 
+            disabled={isEsgotado}
+            className="flex items-center gap-2 cursor-pointer bg-[#FF85A1] hover:bg-[#ff7091] text-white px-4 py-2 rounded-full text-xs font-bold transition-colors shadow-sm disabled:bg-gray-400"
+          >
             <span className="text-sm">🛍️</span> Carrinho
           </button>
           
           {/* Botão WhatsApp */}
           <a
-            href={item.buttonLink}
-            target="_blank"
-            rel="noopener noreferrer"
+            href={isEsgotado ? "#" : item.buttonLink}
             className="flex items-center gap-2 bg-[#00C853] hover:bg-[#00a846] text-white px-4 py-2 rounded-full text-xs font-bold transition-colors shadow-sm"
           >
             <span className="text-sm">💬</span> Whatsapp
