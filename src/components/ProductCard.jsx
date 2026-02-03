@@ -5,6 +5,7 @@ export default function ProductCard({ item }) {
   // Extrai apenas os números da string "10 unidades" -> 10
   const qtdNumerica = item.quantidade ? parseInt(item.quantidade.replace(/\D/g, "")) : 0;
   const isEsgotado = qtdNumerica < 1;
+  
 
   return (
     <article 
@@ -59,20 +60,16 @@ export default function ProductCard({ item }) {
         {/* Botões de Ação */}
         <div className={`flex gap-3 w-full justify-center ${isEsgotado ? "pointer-events-none opacity-50" : ""}`}>
           {/* Botão Carrinho */}
-          <button 
+          <a 
+            href={item.buttonLink}
+            // href="https://www.ifood.com.br/delivery/sao-paulo-sp/duck-space-confeitaria-vila-popular/3a0c8e6c-1a85-46a3-9379-48ac6c83f05d?UTM_Medium=share"
+            target="_blank"
             disabled={isEsgotado}
-            className="flex items-center gap-2 cursor-pointer bg-[#FF85A1] hover:bg-[#ff7091] text-white px-4 py-2 rounded-full text-xs font-bold transition-colors shadow-sm disabled:bg-gray-400"
+            className="flex items-center gap-2 cursor-pointer bg-[#FF85A1] hover:bg-[#ff7091] text-white px-15 py-3 rounded-full text-xs font-bold transition-colors shadow-sm disabled:bg-gray-400"
           >
-            <span className="text-sm">🛍️</span> Carrinho
-          </button>
-          
-          {/* Botão WhatsApp */}
-          <a
-            href={isEsgotado ? "#" : item.buttonLink}
-            className="flex items-center gap-2 bg-[#00C853] hover:bg-[#00a846] text-white px-4 py-2 rounded-full text-xs font-bold transition-colors shadow-sm"
-          >
-            <span className="text-sm">💬</span> Whatsapp
+            <span className="text-sm w-full">{item.buttonText} Peça pelo Ifood</span>
           </a>
+         
         </div>
       </div>
     </article>
