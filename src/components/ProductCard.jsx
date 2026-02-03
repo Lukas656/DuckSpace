@@ -67,7 +67,7 @@ export default function ProductCard({ item }) {
             disabled={isEsgotado}
             className="flex items-center gap-2 cursor-pointer bg-[#FF85A1] hover:bg-[#ff7091] text-white px-15 py-3 rounded-full text-xs font-bold transition-colors shadow-sm disabled:bg-gray-400"
           >
-            <span className="text-sm w-full">{item.buttonText} Peça pelo Ifood</span>
+            <span className="text-sm w-full">{item.buttonText}</span>
           </a>
          
         </div>
